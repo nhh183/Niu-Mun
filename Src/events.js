@@ -48,9 +48,9 @@ const player = client.player;
     });
     
     
-    player.on('botDisconnect', (queue) => {
-        queue.metadata.send('Baiii 🖐');
-    });
+    // player.on('botDisconnect', (queue) => {
+    //     queue.metadata.send('Baiii 🖐');
+    // });
     
     player.on('channelEmpty', (queue) => {
         queue.metadata.send(' Không còn ai trong kênh thoại... ❌');
