@@ -1,0 +1,21 @@
+{
+  "name": "niumun-bot",
+  "version": "1.18.3",
+  "main": "index.js",
+  "author": "Luz",
+  "description": "Niu Mun bot!",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@discordjs/opus": "^0.8.0",
+    "discord-player": "^5.3.2",
+    "discord.js": "^14.6.0",
+    "dotenv": "^16.0.3",
+    "ffmpeg-static": "^5.1.0",
+    "ms": "^3.0.0-canary.1"
+  },
+  "engines": {
+    "node": "latest"
+  }
+}
