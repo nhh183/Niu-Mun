@@ -10,7 +10,7 @@ const player = client.player;
     });
     
     player.on('trackAdd',async (queue, track) => {
-       const msg = await queue.metadata.send(`**${track.title}** đã được thêm vào danh sách phát. ✅`);
+        setTimeout(() => msg.delete(),30000); await queue.metadata.send(`**${track.title}** đã được thêm vào danh sách phát. ✅`);
        setTimeout(() => msg.delete(),3000);
     });
     
@@ -48,12 +48,14 @@ const player = client.player;
     });
     
     
-    // player.on('botDisconnect', (queue) => {
-    //     queue.metadata.send('Baiii 🖐');
-    // });
+    player.on('botDisconnect', (queue) => {
+        const msg = queue.metadata.send('Baiii 🖐');
+        setTimeout(() => msg.delete(),30000);
+    });
     
     player.on('channelEmpty', (queue) => {
-        queue.metadata.send(' Không còn ai trong kênh thoại... ❌');
+        const msg = queue.metadata.send(' Không còn ai trong kênh thoại... ❌');
+        setTimeout(() => msg.delete(),30000);
     });
     
     player.on('queueEnd',async (queue) => {

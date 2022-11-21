@@ -14,8 +14,13 @@ module.exports = {
         });
         if (!res || !res.tracks.length) return message.channel.send(`${message.author}, Không có kết quả được tìm thấy! ❌`);
 
-        const queue = await client.player.createQueue(message.guild, {metadata: message.channel});
-
+        const queue = await client.player.createQueue(message.guild,{
+            leaveOnEmty : true,
+            leaveOnEnd: false,
+            leaveOnStop: false,
+            metadata: message.channel
+        });
+        
         try 
         {
             if (!queue.connection) await queue.connect(message.member.voice.channel);
