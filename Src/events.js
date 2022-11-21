@@ -49,16 +49,16 @@ const player = client.player;
     
     
     player.on('botDisconnect', (queue) => {
-        const msg = queue.metadata.send('Baiii 🖐');
-        setTimeout(() => msg.delete(),30000);
+        const msg1 = queue.metadata.send('Baiii 🖐');
+        setTimeout(() => msg1.delete(),30000);
     });
     
     player.on('channelEmpty', (queue) => {
-        const msg = queue.metadata.send(' Không còn ai trong kênh thoại... ❌');
-        setTimeout(() => msg.delete(),30000);
+        const msg2 = queue.metadata.send(' Không còn ai trong kênh thoại... ❌');
+        setTimeout(() => msg2.delete(),30000);
     });
     
     player.on('queueEnd',async (queue) => {
-       const msg = await queue.metadata.send('Đã phát hết danh sách trong hàng chờ ✅');
-       setTimeout(() => msg.delete(),30000);
+       const msg3 = await queue.metadata.send('Đã phát hết danh sách trong hàng chờ ✅');
+       setTimeout(() => msg3.delete(),30000);
     });
