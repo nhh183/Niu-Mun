@@ -10,8 +10,8 @@ const player = client.player;
     });
     
     player.on('trackAdd',async (queue, track) => {
-        setTimeout(() => msg.delete(),30000); await queue.metadata.send(`**${track.title}** đã được thêm vào danh sách phát. ✅`);
-       setTimeout(() => msg.delete(),3000);
+        const msg = await queue.metadata.send(`**${track.title}** đã được thêm vào danh sách phát. ✅`);
+        setTimeout(() => msg.delete(),3000);
     });
     
     player.on("tracksAdd", (queue, tracks) => {
