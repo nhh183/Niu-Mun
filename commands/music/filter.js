@@ -7,7 +7,7 @@ module.exports = {
     async execute(client, message, args) {
         const queue = client.player.getQueue(message.guild.id);
 
-   if (!queue || !queue.playing) return message.channel.send(`${message.author}, Không có bài hát nào đang được phát. ❌`);
+        if (!queue || !queue.playing) return message.channel.send(`${message.author}, Không có bài hát nào đang được phát. ❌`);
 
         const actualFilter = queue.getFiltersEnabled()[0];
 

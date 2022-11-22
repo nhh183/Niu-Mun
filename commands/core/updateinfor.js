@@ -8,7 +8,7 @@ module.exports = {
     execute(client, message) {
 		const embed = new EmbedBuilder()
 
-        embed.setColor('PURPLE');
+        embed.setColor('Purple');
         embed.setThumbnail(client.user.displayAvatarURL());
         embed.setTitle('Thông tin phiên bản update mới nhất :')
 			

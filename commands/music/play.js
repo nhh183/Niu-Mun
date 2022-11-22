@@ -18,6 +18,7 @@ module.exports = {
             leaveOnEmty : true,
             leaveOnEnd: false,
             leaveOnStop: false,
+            leaveOnEmptyCooldown: 5000,
             metadata: message.channel
         });
         

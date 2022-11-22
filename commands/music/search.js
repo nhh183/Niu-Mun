@@ -9,7 +9,7 @@ module.exports = {
 
     async execute(client, message, args) {
       
-if (!args[0]) return message.channel.send(`${message.author}, Vui lòng nhập tên bài hát ❌`);
+    if (!args[0]) return message.channel.send(`${message.author}, Vui lòng nhập tên bài hát ❌`);
 
         const res = await client.player.search(args.join(' '), {
             requestedBy: message.member,
