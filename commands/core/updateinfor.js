@@ -20,7 +20,7 @@ module.exports = {
             },
             {
                 name: '\u200b',
-                value : '\`\`\`diff\n-Mau cam\n\`\`\`'
+                value : '\`\`\`diff\n-Niu Mun\n\`\`\`'
             }
         )
         

@@ -20,13 +20,13 @@ module.exports = {
         await message.channel.send(progress)
                     .then((msg) => {
                         var inl = setInterval(() => {
+                            if(queue.streamTime == (queue.current.durationMS - 2000)){clearInterval(inl)};
                             let progress1 = queue.createProgressBar({
                                 timecodes :true,
                                 length: 8 
                             });
-                            if(queue.streamTime == (queue.current.durationMS - 2000)){clearInterval(inl)};
                             msg.edit(progress1)
-                    }, 1000)
+                    }, 1000).then((mse) => {mse.delete()})
                 });
     },
 };
