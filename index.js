@@ -2,7 +2,6 @@ const { Player } = require('discord-player');
 const { Client, GatewayIntentBits} = require('discord.js');
 const { botToken } = require('./config');
 
-
 global.client = new Client({
 	intents: [
 		GatewayIntentBits.Guilds,
@@ -10,7 +9,9 @@ global.client = new Client({
 		GatewayIntentBits.GuildMessages,
 		GatewayIntentBits.GuildVoiceStates,
 		GatewayIntentBits.GuildMessageReactions,
-		GatewayIntentBits.MessageContent
+		GatewayIntentBits.MessageContent,
+		GatewayIntentBits.DirectMessages,
+		GatewayIntentBits.GuildIntegrations
 	],
 	disableMentions: 'everyone',
 });
@@ -20,4 +21,5 @@ require('./Src/events');
 require('./Src/loader');
 require('http').createServer((req, res) => res.end(' Niu Mun đã mọc \n Cùng lắng nghe nguyệt cầm !!! ')).listen(3000)
 require('dotenv').config()
+
 client.login(botToken||process.env.BOTTOKEN)

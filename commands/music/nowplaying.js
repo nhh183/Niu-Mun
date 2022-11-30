@@ -18,12 +18,12 @@ module.exports = {
         embed.setThumbnail(track.thumbnail);
         embed.setTitle(track.title)
 
-        const methods = ['disabled', 'track', 'queue'];
+        //const methods = ['disabled', 'track', 'queue'];
 
         const timestamp = queue.getPlayerTimestamp();
         const trackDuration = timestamp.progress == 'Forever' ? 'Endless (Live)' : track.duration;
 
-        embed.setDescription(`Âm lượng : **%${queue.volume}**\nThời lượng : **${trackDuration}**\nChế độ lặp : **${methods[queue.repeatMode]}**\nThêm bởi : ${track. requestedBy}`);
+        embed.setDescription(`Âm lượng : **%${queue.volume}**\nThời lượng : **${trackDuration}**\nThêm bởi : ${track. requestedBy}`);
 
         embed.setTimestamp();
         embed.setFooter({text : '💜' , iconURL : message.author.avatarURL({ dynamic: true })});

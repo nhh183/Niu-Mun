@@ -29,7 +29,7 @@ const player = client.player;
         embed.setDescription(`Đã thêm **\`${songs}\`** bài hát vào hàng chờ \n\n${track.slice(0, 20).join('\n')}\n\n${nextSongs }`);
         embed.setTimestamp();
     
-    queue.metadata.send({ embeds: [embed] });
+        queue.metadata.send({ embeds: [embed] });
     });
     
     player.on('trackStart',async (queue, track) => {

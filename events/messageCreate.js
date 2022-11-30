@@ -1,4 +1,4 @@
-module.exports = (client, message) => {
+module.exports = (client,message,interaction,cmd) => {
     if (message.author.bot) return;
 
     const prefix = client.config.px;
@@ -9,7 +9,7 @@ module.exports = (client, message) => {
     
     const command = args.shift().toLowerCase();
 
-    const cmd = client.commands.get(command) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command));
+    cmd = client.commands.get(command) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command));
     
     if(!cmd) return;
 
@@ -18,5 +18,5 @@ module.exports = (client, message) => {
         if (message.guild.members.me.voice.channelId && message.member.voice.channelId !== message.guild.members.me.voice.channelId) return message.channel.send(`${message.author}, Bạn phải ở cùng kênh thoại để sử dụng lệnh. ❌`);
     }
 
-    if (cmd) cmd.execute(client, message, args);
+    if (cmd) cmd.execute(client, message, args,interaction,);
 };
