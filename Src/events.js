@@ -1,4 +1,5 @@
 const { EmbedBuilder} = require('discord.js');
+const { VoiceConnectionStatus } = require('@discordjs/voice');
 const player = client.player;
 
     player.on('error', (queue, error) => {
@@ -8,7 +9,13 @@ const player = client.player;
     player.on('connectionError', (queue, error) => {
         console.log(`Lỗi kết nối => ${error.message},${error.queue}`);
     });
-    
+    player.on('connectionCreate', (queue) => {
+        queue.connection.voiceConnection.on('stateChange', (oldState, newState) => {
+            if (oldState.status === VoiceConnectionStatus.Ready && newState.status === VoiceConnectionStatus.Connecting) {
+                queue.connection.voiceConnection.configureNetworking();
+        }
+    })
+    });
     player.on('trackAdd',async (queue, track) => {
         const msg = await queue.metadata.send(`**${track.title}** đã được thêm vào danh sách phát. ✅`);
         setTimeout(() => msg.delete(),3000);
