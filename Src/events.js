@@ -10,11 +10,23 @@ const player = client.player;
         console.log(`Lỗi kết nối => ${error.message},${error.queue}`);
     });
     player.on('connectionCreate', (queue) => {
-        queue.connection.voiceConnection.on('stateChange', (oldState, newState) => {
+        /*queue.connection.voiceConnection.on('stateChange', (oldState, newState) => {
             if (oldState.status === VoiceConnectionStatus.Ready && newState.status === VoiceConnectionStatus.Connecting) {
                 queue.connection.voiceConnection.configureNetworking();
         }
-    })
+    })*/
+        queue.connection.voiceConnection.on('stateChange', (oldState, newState) => {
+        const oldNetworking = Reflect.get(oldState, 'networking');
+        const newNetworking = Reflect.get(newState, 'networking');
+
+        const networkStateChangeHandler = (oldNetworkState, newNetworkState) => {
+        const newUdp = Reflect.get(newNetworkState, 'udp');
+        clearInterval(newUdp?.keepAliveInterval);
+      }
+
+      oldNetworking?.off('stateChange', networkStateChangeHandler);
+      newNetworking?.on('stateChange', networkStateChangeHandler);
+        });
     });
     player.on('trackAdd',async (queue, track) => {
         const msg = await queue.metadata.send(`**${track.title}** đã được thêm vào danh sách phát. ✅`);
