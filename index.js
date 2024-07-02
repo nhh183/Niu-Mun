@@ -1,7 +1,7 @@
 const { Player } = require('discord-player');
 const { Client, GatewayIntentBits} = require('discord.js');
 const { botToken } = require('./config');
-import { SpeedInsights } from "@vercel/speed-insights/next"
+const { SpeedInsights } = require("@vercel/speed-insights/next");
 
 global.client = new Client({
 	intents: [
