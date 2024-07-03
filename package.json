@@ -5,7 +5,7 @@
   "author": "Luz",
   "description": "Niu Mun bot!",
   "scripts": {
-    "start": "node index.js"
+    "build": "node index.js"
   },
   "dependencies": {
     "@discordjs/opus": "^0.8.0",
